@@ -10,17 +10,17 @@ namespace ConsoleApp6
     {
         static void Main(string[] args)
         {
-            Console.Title = "我的应用程序";
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("第一行文本");
+            int input = 0;
+            while((input=Console.Read())!=-1)//windows下ctr+z退出程序
+            {
+                //过滤换行符和回车符
+                if((input!=13)&&(input!=10))
+                {
+                    //将读取的整数值转化为字符输出
+                    Console.WriteLine("输入了字符:{0},{1}", (char)input, input);
+                }
+            }
 
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.WriteLine("第二行文本");
-
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("第三行文本");
-            
             Console.Read();
         }
     }
