@@ -20,7 +20,7 @@ namespace ConsoleApp6
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine("第三行文本");
-
+            
             Console.Read();
         }
     }
