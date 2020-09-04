@@ -1,0 +1,41 @@
+# 题目描述
+输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则按字典序打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+# 输入描述
+输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。
+# 代码
+```c#
+using System.Collections.Generic;
+class Solution
+{
+    public List<string> Permutation(string str)
+    {
+        // write code here
+        char[] chars=str.ToCharArray();
+        string result=new List<string>();
+        PermutationHelper(chars, 0 , result);
+        result.Sort();
+        return result;
+    }
+    
+    public void PermutationHelper(char[] arr,int i,List<string> result){
+        if(i==arr.Length-1){
+            string val=new string(arr);
+            if(!result.Contains(val)){
+                result.Add(val);
+            }
+        }else{
+            for(var index=i;index<arr.Length;index++){
+                Swap(arr,i , index );
+                PermutationHelper(arr,i+1,result);
+                Swap(arr,i,index );
+            }
+        }
+    }
+    
+    private void Swap(char[] arr,int i,int j){
+        var temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+}
+```
